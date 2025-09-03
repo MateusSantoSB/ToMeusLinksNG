@@ -1,0 +1,14 @@
+.app{
+     width: 100vw;
+     height: 100vh;
+    background: linear-gradient(90deg,#0752D1, #168AAF );
+        margin: 0;
+        padding: 0;
+}
+header{
+    margin-bottom: 10vh;
+}
+footer{
+    margin-top: 10vh;
+
+}

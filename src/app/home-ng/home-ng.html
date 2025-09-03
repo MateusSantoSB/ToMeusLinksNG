@@ -1,0 +1,55 @@
+<div class="container-fluid">
+    <div class="container-fluid" *ngIf="inicioVisivel">
+    <div class="esquerdaIMG">
+        <img src="/linkss.png" alt="">
+    </div>
+        <div class="botoes">
+            <button (click)="toLogin()"><p >Entrar</p></button>
+            <button (click)="toRegistrar()"><p >Cadastrar</p></button>
+        </div>
+    <div class="direitaIMG">
+        <img src="/links2.png" alt="">
+    </div>
+    </div>
+    <div class="container-fluid" *ngIf="loginVisivel">
+            <div class="login">
+                    <div class="form">                 
+                       <h4>Entrar</h4>
+                        <p>Email:</p>
+                        <input type="text" #email>
+
+                        <p>Senha:</p>
+                        <input type="text" #pass>
+
+                        <button (click)="login(email.value,pass.value)"><p>Entrar</p></button>
+                        <p id="msg" (click)="toRegistrar()">Não tem conta? Registre aqui!!</p>
+                    </div>
+                    
+            </div>
+
+
+    </div>
+    <div class="container-fluid" *ngIf="registrarVisivel">
+        <div class="registrar">
+                <div class="form">                 
+                    <h4>Cadastrar</h4>
+                        <p>nome:</p>
+                        <input type="text" #nome>
+
+                        <p>Apelido:</p>
+                        <input type="text" #apelido>
+
+                        <p>Email:</p>
+                        <input type="text" #email>
+
+                        <p>Senha:</p>
+                        <input type="text" #pass>
+
+                        <button (click)="registrar(nome.value,apelido.value,email.value,pass.value)"><p>Login</p></button>
+                        <p id="msg" (click)="toLogin()">Já tem conta? logue aqui!!</p>
+                    </div>
+        </div>
+    </div>
+
+    
+</div>

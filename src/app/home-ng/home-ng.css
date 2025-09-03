@@ -1,0 +1,113 @@
+@font-face {
+  font-family: 'Baloo';
+  src: url('/BalooTammudu-Regular.ttf') format('truetype');
+
+}
+
+
+.container-fluid{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+
+
+}
+
+#msg{
+    margin-top: 1vh;
+    font-size: 2vh;
+    justify-content: center;
+    text-align: center;
+    opacity: 70%;
+    cursor: pointer;
+}
+h4{
+    font-family: 'Baloo',cursive;
+    color: white;
+
+}
+
+.botoes{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+     width: 20vw;
+    height: 40vh;
+}
+.botoes button{
+    border-radius: 10px;
+    height: 7vh;
+    margin-bottom: 4vh;
+    border: none;
+}
+.botoes button:hover{
+    background-color: rgb(132, 167, 241);
+
+}
+.botoes button p{
+    font-family: "Baloo";
+    padding-top: 2vh;
+
+}
+
+
+.esquerdaIMG{
+    width: 30vw;
+    height: 33vh;
+    display: flex;
+    justify-content: center;
+
+}
+.esquerdaIMG img{
+    padding-top: 5vh;
+    height: 33vh;
+    width: 33vw;
+}
+
+
+.direitaIMG{
+    height: 30vh; 
+    width: 33vw;
+    
+}
+
+.direitaIMG img{
+    height: 30vh;
+    width: 33vw;
+    display: flex;
+    justify-content: center;
+}
+
+.login{
+    height: 33vh;
+}
+.registrar{
+    height: 47vh;
+
+}
+.form{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.form p{
+    margin:0;
+    color: white;
+    font-family: "Baloo";
+    height: 20px;
+}
+.form input[type=text] {
+    margin-bottom: 2vh;
+}
+
+.form button{
+    height: 5vh;
+    border-radius: 10px;
+    border: none;
+}
+.form button p{
+    color: black;
+}
+
+

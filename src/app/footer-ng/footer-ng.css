@@ -1,0 +1,28 @@
+@font-face {
+  font-family: 'Baloo';
+  src: url('/BalooTammudu-Regular.ttf') format('truetype');
+
+}
+.container-fluid{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+.links{
+    display: flex;
+    justify-content: center;
+    opacity: 40%;
+}
+.links img{
+    height: 2vh;
+    width: 2vh;
+    margin-left: 2px;
+}
+.links p{
+    font-family: "Baloo";
+    color: white;
+    margin: 0;
+    font-size: 2vh;
+   
+}
