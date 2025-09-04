@@ -14,6 +14,22 @@
    height: 100vh;
 
 }
+.titulo{
+   display: flex;
+   justify-content: center;
+}
+.nomeUsuario{
+   width: 90%;
+   text-align: center;
+}
+.iconeSite{
+   margin-top: 2vh;
+   text-align: center;
+   border: solid;
+   border-radius: 10px;
+   border-color: white;
+   height: 20vh;
+}
 
 h4{
    font-family: "Baloo";
@@ -94,4 +110,8 @@ img{
    height: 2vh;
    width: 2vw;
    cursor: pointer;
+}
+
+#linksUsuario{
+   overflow: auto;
 }

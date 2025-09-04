@@ -1,19 +1,32 @@
 <div class="container-fluid">
-    <h1>Ola {{usuario.sub}}!!</h1>
+    <div class="titulo">
+            <div class="iconeSite">
+                <h1>Tô Meus Links</h1>
+            </div> 
+            <div class="nomeUsuario">
+                    <h1>Ola {{usuario.sub}}!!</h1>
+             </div>
+
+    </div>
     <div class="dashboard">
         
-        <div class="links">
+        <div class="links" id="linksUsuario">
             <h4>Seus Links</h4>
 
-            <div *ngIf="linkVerif()">            
-            <div *ngFor="let link of links">
-                <p>{{link}}</p>
+            <div >            
+
+           @for(link of (links$|async);track $index){
+              <div>
+                 <p>{{link.titulo}}</p>
+                 <p>{{link.link_user}}</p>        
             </div>
+            }@empty{
+                <p>Você não tem Links cadastrados</p>
+
+            }  
+        
             </div>
 
-            <div *ngIf="linkVerif()==false">
-                <p>Você não tem Links cadastrados</p>
-            </div>
         </div>
 
         <div class="links" *ngIf="gerenciarLinks">
@@ -37,6 +50,9 @@
             <p>Icone/Url</p>
             <input type="text" #icone>
             </div>
+            @if(msgAdicionado){
+                <p>{{msg}}</p>
+            }
             <div class="botoes">
                      <button (click)="adicionarLinks(link.value,titulo.value,icone.value)"><p>Adicionar</p></button>
                      <button (click)="toGerenciarLinks()"><p>Voltar</p></button>
@@ -50,10 +66,21 @@
             <h4>Remover Link</h4>
 
                 <div class="removerLinks">
-            <div *ngFor="let link of links">
-                <div class="removerLink"><p>{{link}}</p><img src="/lixeira.png" alt=""></div>
-            </div>
+           
+                @for(link of (links$|async);track $index){
+                <div class="removerLink">
+                    <p>{{link.link_user}}</p><img src="/lixeira.png" alt="" (click)="removerLinks(link.titulo)">
                 </div>
+                }@empty {
+                    <p>Você não tem links cadastrados</p>
+                }
+
+                </div>
+
+              @if(msgRemovido){
+                    <p>{{msg}}</p>
+              }
+
             <div class="botoes">
                      <button (click)="toGerenciarLinks()"><p>Voltar</p></button>
             </div>

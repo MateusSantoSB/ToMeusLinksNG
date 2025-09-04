@@ -35,16 +35,18 @@ buscarToken(){
   return dados;
   }
   return null
-
-}
-//uuid n aceito
-adicionarLink(link:Link,id:):Observable<any>{
-   
- 
-
-return this.http.post<Link>(this.urlBack+"/l/link/"+id,link)
-
 }
 
+adicionarLink(link:Link,id:string):Observable<any>{
+    return this.http.post<Link>(this.urlBack+"/l/link/"+id,link)
+}
+
+buscaLinksUsuario(id:string):Observable<Link[]>{
+  return this.http.get<Link[]>(this.urlBack+"/l/link/"+id)
+}
+
+deletarLink(id:string,titulo:string):Observable<any>{
+  return this.http.delete<any>(this.urlBack+"/l/link/del/"+id+"/"+titulo)
+}
 
 }
