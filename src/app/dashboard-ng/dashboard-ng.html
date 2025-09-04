@@ -1,5 +1,5 @@
 <div class="container-fluid">
-    <h1>Ola {{usuarioNome}}!!</h1>
+    <h1>Ola {{usuario.sub}}!!</h1>
     <div class="dashboard">
         
         <div class="links">
@@ -21,7 +21,7 @@
             <div class="botoes">
                 <button (click)="toAdicionar()"><p>Adicionar</p></button>
                 <button (click)="toRemover()"><p>Remover </p></button>
-                <button><p>Editar</p></button>
+                <button disabled><p>Editar</p></button>
                 <button><p>Visualizar Pagina</p></button>
             </div>
         </div>
@@ -29,16 +29,16 @@
 
         <div class="links" *ngIf="adicionarLink">
             <h4>Adicionar Link</h4>
-            <div class="inputs">
+            <div class="inputs" >
             <p>URL/Link:</p>
-            <input type="text">
+            <input type="text" #link>
             <p>Titulo</p>
-            <input type="text">
+            <input type="text" #titulo>
             <p>Icone/Url</p>
-            <input type="text">
+            <input type="text" #icone>
             </div>
             <div class="botoes">
-                     <button><p>Adicionar</p></button>
+                     <button (click)="adicionarLinks(link.value,titulo.value,icone.value)"><p>Adicionar</p></button>
                      <button (click)="toGerenciarLinks()"><p>Voltar</p></button>
             </div>
            
