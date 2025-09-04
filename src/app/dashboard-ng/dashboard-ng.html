@@ -1,1 +1,67 @@
-<p>dashboard-ng works!</p>
+<div class="container-fluid">
+    <h1>Ola {{usuarioNome}}!!</h1>
+    <div class="dashboard">
+        
+        <div class="links">
+            <h4>Seus Links</h4>
+
+            <div *ngIf="linkVerif()">            
+            <div *ngFor="let link of links">
+                <p>{{link}}</p>
+            </div>
+            </div>
+
+            <div *ngIf="linkVerif()==false">
+                <p>Você não tem Links cadastrados</p>
+            </div>
+        </div>
+
+        <div class="links" *ngIf="gerenciarLinks">
+            <h4>Gerenciar Links</h4>
+            <div class="botoes">
+                <button (click)="toAdicionar()"><p>Adicionar</p></button>
+                <button (click)="toRemover()"><p>Remover </p></button>
+                <button><p>Editar</p></button>
+                <button><p>Visualizar Pagina</p></button>
+            </div>
+        </div>
+
+
+        <div class="links" *ngIf="adicionarLink">
+            <h4>Adicionar Link</h4>
+            <div class="inputs">
+            <p>URL/Link:</p>
+            <input type="text">
+            <p>Titulo</p>
+            <input type="text">
+            <p>Icone/Url</p>
+            <input type="text">
+            </div>
+            <div class="botoes">
+                     <button><p>Adicionar</p></button>
+                     <button (click)="toGerenciarLinks()"><p>Voltar</p></button>
+            </div>
+           
+
+        </div>
+
+
+        <div class="links" *ngIf="removerLink">
+            <h4>Remover Link</h4>
+
+                <div class="removerLinks">
+            <div *ngFor="let link of links">
+                <div class="removerLink"><p>{{link}}</p><img src="/lixeira.png" alt=""></div>
+            </div>
+                </div>
+            <div class="botoes">
+                     <button (click)="toGerenciarLinks()"><p>Voltar</p></button>
+            </div>
+           
+
+        
+
+    </div>
+
+
+</div>

@@ -11,6 +11,8 @@ import { FormControl, ReactiveFormsModule } from '@angular/forms';
 })
 export class HomeNg {
 
+
+
 inicioVisivel=true
 loginVisivel=false
 registrarVisivel=false
@@ -27,6 +29,7 @@ toLogin(){
 login(email:string,pass:string){
  const e=email;
  const p=pass;
+  
 }
 
 toRegistrar(){

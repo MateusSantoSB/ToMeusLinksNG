@@ -1,0 +1,97 @@
+@font-face {
+  font-family: 'Baloo';
+  src: url('/BalooTammudu-Regular.ttf') format('truetype');
+
+}
+
+.container-fluid{
+   width: 100vw;
+   z-index: 1000;
+   position: fixed;
+   top: 0;
+   left: 0;
+   background: linear-gradient(90deg,#0752D1, #168AAF );
+   height: 100vh;
+
+}
+
+h4{
+   font-family: "Baloo";
+   color: white;
+   margin-top: 1vh;
+}
+p{
+     font-family: "Baloo";
+   color: white;
+   margin-bottom: 0;
+}
+.dashboard{
+  margin-top: 5vh;
+    flex-direction: row;
+   display: flex;
+   justify-content: center;
+}
+h1{
+   margin-top: 5vh;
+   color: white;
+   font-family:"Baloo" ;
+ 
+}
+
+.links{
+   border: solid;
+   height: 50vh;
+   width: 40vw;
+   border-color: white;
+   display: flex;
+   flex-direction: column;
+   text-align: center;
+   justify-content: center;
+   align-items: center;
+}
+
+
+.inputs{
+   text-align: center;
+   margin-bottom: 2vh;
+   width: 90%;
+}
+.inputs input{
+   width: 100%;
+}
+
+.botoes{
+   width: 70%;
+   margin-top: 2vh;
+  
+}
+.botoes button{
+   height: 5vh;
+   width: 90%;
+   border-radius: 10px;
+   border: none;
+   margin-bottom: 2vh;
+}
+.botoes button:hover{
+   background-color: rgba(255, 255, 255, 0.356);
+
+}
+.botoes p{
+   padding-top: 1vh;
+   color: black;
+}
+.removerLinks{
+   border: solid;
+   border-color: white;
+   height: 90%;
+   width: 90%;
+}
+.removerLink{
+   display: flex;
+   flex-direction: row;
+}
+img{
+   height: 2vh;
+   width: 2vw;
+   cursor: pointer;
+}
