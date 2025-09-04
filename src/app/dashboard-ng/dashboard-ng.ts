@@ -39,6 +39,7 @@ this.links$=this.service.buscaLinksUsuario(this.usuario.Id)
 
 
 adicionarLinks(link_user:string,titulo:string,icone:string){
+ 
   let id=this.usuario.Id
   const link:Link={
       "link_user":link_user,
@@ -69,6 +70,7 @@ adicionarLinks(link_user:string,titulo:string,icone:string){
     }
 
   })
+
 }
 
 removerLinks(titulo:string){

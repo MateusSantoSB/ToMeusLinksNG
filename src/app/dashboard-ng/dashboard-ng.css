@@ -19,7 +19,7 @@
    justify-content: center;
 }
 .nomeUsuario{
-   width: 90%;
+   width: 66%;
    text-align: center;
 }
 .iconeSite{
@@ -28,7 +28,12 @@
    border: solid;
    border-radius: 10px;
    border-color: white;
-   height: 20vh;
+   height: 10vh;
+   text-align: center;
+}
+.iconeSite h1{
+   margin: 1vh;
+   font-size: 3vh;
 }
 
 h4{
