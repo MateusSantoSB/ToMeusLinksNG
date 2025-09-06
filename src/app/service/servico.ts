@@ -1,9 +1,9 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Login } from './Model/Login';
+import { Login } from '../Model/Login';
 import { Observable } from 'rxjs';
-import { Usuario } from './Model/Usuario';
-import { Link } from './Model/Link';
+import { Usuario } from '../Model/Usuario';
+import { Link } from '../Model/Link';
 
 @Injectable({
   providedIn: 'root'
@@ -37,6 +37,14 @@ buscarToken(){
   return null
 }
 
+convertenEXPToken(){
+  const token=localStorage.getItem('token')
+  const payload = JSON.parse(atob(token.split('.')[1]));
+  const expDate = new Date(payload.exp * 1000); 
+  return expDate;
+}
+
+
 adicionarLink(link:Link,id:string):Observable<any>{
     return this.http.post<Link>(this.urlBack+"/l/link/"+id,link)
 }
@@ -45,8 +53,18 @@ buscaLinksUsuario(id:string):Observable<Link[]>{
   return this.http.get<Link[]>(this.urlBack+"/l/link/"+id)
 }
 
+buscarLink(id:string,titulo:string):Observable<Link>{
+  return this.http.get<Link>(this.urlBack+"/l/src/"+id+"/"+titulo)
+}
+
 deletarLink(id:string,titulo:string):Observable<any>{
   return this.http.delete<any>(this.urlBack+"/l/link/del/"+id+"/"+titulo)
 }
+
+editarLink(id:string,titulo:string,link:Link):Observable<Link>{
+  return this.http.put<Link>(this.urlBack+"/l/att/"+id+"/"+titulo,link)
+}
+
+
 
 }

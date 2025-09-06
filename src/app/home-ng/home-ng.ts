@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { Login } from '../Model/Login';
-import { Servico } from '../servico';
+import { Servico } from '../service/servico';
 import { Router } from '@angular/router';
 import { Usuario } from '../Model/Usuario';
 

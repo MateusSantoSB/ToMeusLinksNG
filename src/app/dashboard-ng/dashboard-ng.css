@@ -14,12 +14,15 @@
    height: 100vh;
 
 }
+#msg{
+   margin-top: 1vh;
+}
 .titulo{
    display: flex;
    justify-content: center;
 }
 .nomeUsuario{
-   width: 66%;
+   width: 64%;
    text-align: center;
 }
 .iconeSite{
@@ -32,7 +35,7 @@
    text-align: center;
 }
 .iconeSite h1{
-   margin: 1vh;
+   margin: 4vh;
    font-size: 3vh;
 }
 
@@ -40,6 +43,11 @@ h4{
    font-family: "Baloo";
    color: white;
    margin-top: 1vh;
+}
+h3{
+   font-family: "Baloo";
+   color: white;
+   margin-top: 2vh;
 }
 p{
      font-family: "Baloo";
@@ -80,7 +88,14 @@ h1{
 .inputs input{
    width: 100%;
 }
+#logout{
+   margin-top: 5vh;
+   cursor: pointer;
 
+}
+#imagemLogout{
+   cursor: pointer;
+}
 .botoes{
    width: 70%;
    margin-top: 2vh;
@@ -101,22 +116,65 @@ h1{
    padding-top: 1vh;
    color: black;
 }
+
 .removerLinks{
    border: solid;
    border-color: white;
    height: 90%;
    width: 90%;
+   display: flex;
+   justify-content: center;
+   flex-direction: column;
 }
 .removerLink{
    display: flex;
    flex-direction: row;
+   justify-content: center;
+
 }
-img{
+.removerLink p{
+   color: white;
+   font-size: 2.5vh;
+   margin-top: 2vh;
+}
+.removerLink img{
    height: 2vh;
    width: 2vw;
    cursor: pointer;
+   margin-top: 2.5vh;
 }
 
+.editarLinks{
+   border: solid;
+   border-color: white;
+   height: 90%;
+   width: 90%;
+   display: flex;
+   justify-content: center;
+   flex-direction: column;
+}
+.editarLink{
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+}
+
+.editarLink2 input{
+   width: 90%;
+   margin-bottom: 2vh;
+}
+.editarLink p{
+   color: white;
+   font-size: 3vh;
+   margin-top: 2vh;
+}
+
+.editarLink img{
+   height: 2vh;
+   width: 2vw;
+   cursor: pointer;
+   margin-top: 2.5vh;
+}
 #linksUsuario{
    overflow: auto;
 }

@@ -2,16 +2,20 @@
     <div class="titulo">
             <div class="iconeSite">
                 <h1>Tô Meus Links</h1>
+
             </div> 
             <div class="nomeUsuario">
                     <h1>Ola {{usuario.sub}}!!</h1>
+             </div>
+             <div (click)="sair()">
+                <p id="logout">Logout</p><img src="/porta.png" id="imagemLogout" alt="">
              </div>
 
     </div>
     <div class="dashboard">
         
         <div class="links" id="linksUsuario">
-            <h4>Seus Links</h4>
+            <h3>Seus Links</h3>
 
             <div >            
 
@@ -29,41 +33,46 @@
 
         </div>
 
-        <div class="links" *ngIf="gerenciarLinks">
-            <h4>Gerenciar Links</h4>
+        @if(gerenciarLinks){
+        <div class="links" >
+            <h3>Gerenciar Links</h3>
             <div class="botoes">
                 <button (click)="toAdicionar()"><p>Adicionar</p></button>
                 <button (click)="toRemover()"><p>Remover </p></button>
-                <button disabled><p>Editar</p></button>
+                <button (click)="toEditar()"><p>Editar</p></button>
                 <button><p>Visualizar Pagina</p></button>
             </div>
         </div>
+    }
 
-
-        <div class="links" *ngIf="adicionarLink">
-            <h4>Adicionar Link</h4>
+        @if(adicionarLink){
+            <div class="links">
+            <h3>Adicionar Link</h3>
             <div class="inputs" >
+        <form [formGroup]="addLink">
             <p>URL/Link:</p>
-            <input type="text" #link>
+            <input type="text" formControlName="link" placeholder="Link da sua rede social" >
             <p>Titulo</p>
-            <input type="text" #titulo>
+            <input type="text" formControlName="titulo" placeholder="Titulo/Nome da sua rede " >
             <p>Icone/Url</p>
-            <input type="text" #icone>
+            <input type="text"  formControlName="icone" placeholder="Icone da sua rede">
+        </form>
             </div>
             @if(msgAdicionado){
-                <p>{{msg}}</p>
+                <p id="msg">{{msg}}</p>
             }
             <div class="botoes">
-                     <button (click)="adicionarLinks(link.value,titulo.value,icone.value)"><p>Adicionar</p></button>
+                     <button (click)="adicionarLinks()"><p>Adicionar</p></button>
                      <button (click)="toGerenciarLinks()"><p>Voltar</p></button>
             </div>
            
 
         </div>
+    }
 
 
-        <div class="links" *ngIf="removerLink">
-            <h4>Remover Link</h4>
+       @if(removerLink){ <div class="links" >
+            <h3>Remover Link</h3>
 
                 <div class="removerLinks">
            
@@ -78,7 +87,7 @@
                 </div>
 
               @if(msgRemovido){
-                    <p>{{msg}}</p>
+                    <p id="msg">{{msg}}</p>
               }
 
             <div class="botoes">
@@ -89,6 +98,72 @@
         
 
     </div>
+}
+
+
+
+     @if(editarLink){
+            <div class="links">
+            <h3>Editar Link</h3>
+           
+                <div class="editarLinks">
+           
+                @for(link of (links$|async);track $index){
+                <div class="editarLink">
+                    <p>{{link.link_user}}</p><img src="/lapisW.png" alt="" (click)="edit2(link.titulo)">
+                </div>
+                }@empty {
+                    <p>Você não tem links cadastrados</p>
+                }
+
+                </div>
+
+
+          
+            <div class="botoes">
+                     <button (click)="toGerenciarLinks()"><p>Voltar</p></button>
+            </div>
+           
+
+        </div>
+    }
+
+
+
+    @if(editarLink2){
+            <div class="links">
+            <h3>Editar Link</h3>
+           
+                <div class="editarLinks">
+           
+                <div class="editarLink2">
+                    <form [formGroup]="editLink">
+                    <p>Link</p>
+                    <input type="text"  formControlName="link">
+                    <p>Titulo</p>
+                    <input type="text"  formControlName="titulo">
+                    <p>Icone</p>
+                    <input type="text"  formControlName="icone">
+                        </form>
+                    
+                </div>
+                
+
+                </div>
+
+
+            @if(msgEditado){
+                <p id="msg">{{msg}}</p>
+            }
+            <div class="botoes">
+                     <button (click)="editarLinks(linkEdit.titulo)"><p>Editar</p></button>
+                     <button (click)="toGerenciarLinks()"><p>Voltar</p></button>
+            </div>
+           
+
+        </div>
+    }
+
 
 
 </div>
