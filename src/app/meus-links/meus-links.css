@@ -1,0 +1,102 @@
+@font-face {
+  font-family: 'Baloo';
+  src: url('/BalooTammudu-Regular.ttf') format('truetype');
+
+}
+.container-fluid{
+   width: 100vw;
+   z-index: 1001;
+   position: fixed;
+   top: 0;
+   left: 0;
+   background: linear-gradient(90deg,#0752D1, #168AAF );
+   height: 100vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;    
+}
+.container{
+    display: flex;
+    flex-direction: row;
+    height: 70vh;
+}
+h1{
+    font-family: 'Baloo',cursive;
+    color: white;
+    font-size: 8vh;
+    margin: 0;
+}
+h3{
+    margin-top: 2vh;
+    font-family: 'Baloo',cursive;
+    color: white;
+}
+
+.titulo{
+    width: 40%;
+    display: flex;
+    margin-top: 5vh;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+
+}
+.titulo h4{
+    color: white;
+    font-family: 'Baloo',cursive;
+    font-size: 2vh;
+    margin-bottom: 10vh;
+}
+.links{
+    margin-left: 10%;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+}
+.quadro{
+    width: 70%;
+    border: solid;
+    border-radius: 10px;
+    border-color: white;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+}
+.quadro img{
+    height: 60vh;   
+    width: 25vw;
+}
+
+
+.linksQuadro{
+    display: flex;
+    justify-content: center;
+    height: 90%;
+    align-items: flex-end;
+    cursor: pointer;
+}
+.linksQuadro img{
+    height: 3.5vh;
+    width: 2.5vw;
+    margin-right: 1vh;
+}
+.linksQuadro p{
+    font-family: 'Baloo',cursive;
+    color: white;
+    font-size: 3vh;
+    height: 3vh;
+    margin-bottom: 0;
+}
+.botao{
+    border-radius: 30px;
+    width: 40%;
+    border: none;
+  
+}
+.botao p{
+    margin-top: 2.5vh;
+    font-family: 'Baloo',cursive;
+    text-align: center;
+}
