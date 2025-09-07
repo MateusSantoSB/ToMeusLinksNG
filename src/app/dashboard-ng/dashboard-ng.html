@@ -22,7 +22,7 @@
            @for(link of (links$|async);track $index){
               <div>
                  <p>{{link.titulo}}</p>
-                 <p>{{link.link_user}}</p>        
+                 <a href="{{link.link_user}}">{{link.link_user}}</a>     
             </div>
             }@empty{
                 <p>Você não tem Links cadastrados</p>

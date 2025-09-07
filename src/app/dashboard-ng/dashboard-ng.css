@@ -14,6 +14,9 @@
    height: 100vh;
 
 }
+a{
+   color: white;
+}
 #msg{
    margin-top: 1vh;
 }
@@ -26,17 +29,21 @@
    text-align: center;
 }
 .iconeSite{
-   margin-top: 2vh;
+   margin-top: 4vh;
    text-align: center;
    border: solid;
    border-radius: 10px;
    border-color: white;
    height: 10vh;
    text-align: center;
+   display: flex;
+   justify-content: center;
+   flex-direction: column;
 }
 .iconeSite h1{
-   margin: 4vh;
    font-size: 3vh;
+   height: 3vh;
+   margin: 0;
 }
 
 h4{
@@ -69,7 +76,7 @@ h1{
 
 .links{
    border: solid;
-   height: 50vh;
+   height: 60vh;
    width: 40vw;
    border-color: white;
    display: flex;

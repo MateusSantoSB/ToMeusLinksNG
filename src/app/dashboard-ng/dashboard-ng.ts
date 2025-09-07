@@ -65,14 +65,22 @@ adicionarLinks(){
 
 
   let id=this.usuario.Id
+  const regex = /[\/.@#\$%\^\&*\)\(+=._-]/;
   const link:Link={
       "link_user":this.addLink.get('link').value.trim(),
       "titulo":this.addLink.get('titulo').value.trim(),
       "icone":this.addLink.get('icone').value.trim()
   }
-  this.service.adicionarLink(link,id).subscribe({
 
-    next:()=>{
+  let linkLenght:number
+  this.links$.subscribe(list=>{linkLenght=list.length})
+
+
+
+  if(!regex.test(link.titulo)){
+    if(linkLenght<=4){
+   this.service.adicionarLink(link,id).subscribe({
+      next:()=>{
       console.log("Link Adicionado")
       this.msgAdicionado=true
       this.msg="Link Adicionado com sucesso !!"
@@ -88,7 +96,7 @@ adicionarLinks(){
     },
     error:(error)=>{
         this.msgAdicionado=true
-        this.msg="Erro verfique os dados!"
+        this.msg="Ocorreu um erro"
         this.cd.detectChanges()
       setTimeout(()=>{
         this.msgAdicionado=false
@@ -96,6 +104,26 @@ adicionarLinks(){
     }
 
   })
+}else{
+    this.msgAdicionado=true
+  this.msg="Limite de Links é 5"
+
+  setTimeout(()=>{
+    this.msgAdicionado=false
+    this.msg=""
+  },2000)
+}
+}else{
+  this.msgAdicionado=true
+  this.msg="Crie o titulo sem Caracteres Especiais"
+
+  setTimeout(()=>{
+    this.msgAdicionado=false
+    this.msg="Crie o titulo sem Caracteres Especiais"
+
+  },2000)
+
+}
 
 }
 
@@ -133,12 +161,15 @@ removerLinks(titulo:string){
 }
 
 editarLinks(titulo:string){
+  const regex = /[\/.@#\$%\^\&*\)\(+=._-]/;
   const id=this.usuario.Id
   const link:Link={
      "link_user":this.editLink.get('link').value,
       "titulo":this.editLink.get('titulo').value,
       "icone":this.editLink.get('icone').value
   }
+
+if(!regex.test(link.titulo)){
 
   this.service.editarLink(id,titulo,link).subscribe({
         next:()=>{
@@ -166,6 +197,10 @@ editarLinks(titulo:string){
         }
 
   })
+  }else{
+      this.msgAdicionado=true
+      this.msg="Edite o titulo sem Caracteres Especiais"
+  }
 }
 
 
