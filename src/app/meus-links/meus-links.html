@@ -8,19 +8,26 @@
 
     </div> 
     <div class="links"> 
-            <div class="quadro">
-                <h3></h3>
+          @for( link of (links$|async);track $index){    
+        <div class="quadro">
+                <h3>{{nome}}</h3>
                 
                     <div class="linksQuadro">
-                    @for( link of links;track $index){
+                  
                         <div class="link">
-                            <img src="/youtube.png" alt=""> <p></p>
+                            <a href="{{link.link_user}}"><img src="{{link.icone}}" alt=""> <p>{{link.titulo}}</p></a>
                         </div>
-                         }
+                         
+
                     </div>
            
 
             </div>
+            }@empty{
+                            <div>
+                                <h1>Usuario não encontrado :-(</h1>
+                            </div>
+                         }
     </div>
 
 </div>

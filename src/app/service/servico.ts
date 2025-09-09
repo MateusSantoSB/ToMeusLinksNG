@@ -50,7 +50,7 @@ adicionarLink(link:Link,username:string):Observable<any>{
 }
 
 buscaLinksUsuario(username:string):Observable<Link[]>{
-  return this.http.get<Link[]>(this.urlBack+"/l/link/"+username)
+  return this.http.get<Link[]>(this.urlBack+"/l/link/user/"+username)
 }
 
 buscarLink(username:string,titulo:string):Observable<Link>{

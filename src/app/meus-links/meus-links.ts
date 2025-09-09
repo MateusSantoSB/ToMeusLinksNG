@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { Link } from '../Model/Link';
 import { CommonModule } from '@angular/common';
 import { Servico } from '../service/servico';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-meus-links',
@@ -11,23 +13,23 @@ import { Servico } from '../service/servico';
 })
 export class MeusLinks {
 
-constructor(private service:Servico){
+constructor(private service:Servico,private router:ActivatedRoute){
 
 }
 
 nome:string
-links:Link[]
+links$!:Observable<Link[]>
+msg:string
+msgBool:boolean=false
 
 
 ngOnInit(){
 
+  const username=this.router.snapshot.paramMap.get('username')
+  this.nome=username
+  this.links$=this.service.buscaLinksUsuario(username)
+   
   
-  
-
-
-
-
-
 }
 
 }

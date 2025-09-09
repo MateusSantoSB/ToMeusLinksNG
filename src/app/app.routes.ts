@@ -8,7 +8,7 @@ import { MeusLinks } from './meus-links/meus-links';
 export const routes: Routes = [
      {path:'',component:HomeNg},
      {path:'dashboard',component:DashboardNg},
-     {path:'meusLinks',component:MeusLinks}
+     {path:'meusLinks/:username',component:MeusLinks}
 
 
 ];
