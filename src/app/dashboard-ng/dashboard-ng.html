@@ -69,7 +69,7 @@
 
         </div>
     }
-
+ 
 
        @if(removerLink){ <div class="links" >
             <h3>Remover Link</h3>
@@ -152,11 +152,11 @@
                 </div>
 
 
-            @if(msgEditado){
-                <p id="msg">{{msg}}</p>
-            }
+           @if(msgEditado){
+                <p id="msg" >{{msg}}</p>
+        }
             <div class="botoes">
-                     <button (click)="editarLinks(linkEdit.titulo)"><p>Editar</p></button>
+                     <button type="button" (click)="editarLinks(linkEdit.titulo)"><p>Editar</p></button>
                      <button (click)="toGerenciarLinks()"><p>Voltar</p></button>
             </div>
            
@@ -166,4 +166,5 @@
 
 
 
+</div>
 </div>

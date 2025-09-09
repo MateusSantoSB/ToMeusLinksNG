@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Link } from '../Model/Link';
 import { CommonModule } from '@angular/common';
+import { Servico } from '../service/servico';
 
 @Component({
   selector: 'app-meus-links',
@@ -10,8 +11,23 @@ import { CommonModule } from '@angular/common';
 })
 export class MeusLinks {
 
-nome:string="Mateus Santos"
-links:string[]=["Youtube"]
+constructor(private service:Servico){
 
+}
+
+nome:string
+links:Link[]
+
+
+ngOnInit(){
+
+  
+  
+
+
+
+
+
+}
 
 }

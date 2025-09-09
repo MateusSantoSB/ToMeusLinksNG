@@ -4,7 +4,7 @@
 
 }
 
-.container-fluid{
+.container-fluid{ 
    width: 100vw;
    z-index: 1000;
    position: fixed;
@@ -12,6 +12,7 @@
    left: 0;
    background: linear-gradient(90deg,#0752D1, #168AAF );
    height: 100vh;
+  
 
 }
 a{
@@ -84,6 +85,7 @@ h1{
    text-align: center;
    justify-content: center;
    align-items: center;
+   margin-bottom: 5vh;
 }
 
 
@@ -184,4 +186,29 @@ h1{
 }
 #linksUsuario{
    overflow: auto;
+}
+
+
+@media(max-width:700px){
+   .dashboard{
+   display: flex;
+   justify-content: center;
+   flex-direction: column;
+   align-items: center;
+}
+.container-fluid{
+   overflow: scroll;
+}
+#linksUsuario{
+   width: 90%;
+}
+.links{
+   width: 90%;
+}
+
+.links img{
+   width: 3vh;
+   height: 3vw;
+
+}
 }

@@ -45,24 +45,24 @@ convertenEXPToken(){
 }
 
 
-adicionarLink(link:Link,id:string):Observable<any>{
-    return this.http.post<Link>(this.urlBack+"/l/link/"+id,link)
+adicionarLink(link:Link,username:string):Observable<any>{
+    return this.http.post<Link>(this.urlBack+"/l/link/"+username,link)
 }
 
-buscaLinksUsuario(id:string):Observable<Link[]>{
-  return this.http.get<Link[]>(this.urlBack+"/l/link/"+id)
+buscaLinksUsuario(username:string):Observable<Link[]>{
+  return this.http.get<Link[]>(this.urlBack+"/l/link/"+username)
 }
 
-buscarLink(id:string,titulo:string):Observable<Link>{
-  return this.http.get<Link>(this.urlBack+"/l/src/"+id+"/"+titulo)
+buscarLink(username:string,titulo:string):Observable<Link>{
+  return this.http.get<Link>(this.urlBack+"/l/src/"+username+"/"+titulo)
 }
 
-deletarLink(id:string,titulo:string):Observable<any>{
-  return this.http.delete<any>(this.urlBack+"/l/link/del/"+id+"/"+titulo)
+deletarLink(username:string,titulo:string):Observable<any>{
+  return this.http.delete<any>(this.urlBack+"/l/link/del/"+username+"/"+titulo)
 }
 
-editarLink(id:string,titulo:string,link:Link):Observable<Link>{
-  return this.http.put<Link>(this.urlBack+"/l/att/"+id+"/"+titulo,link)
+editarLink(username:string,titulo:string,link:Link):Observable<Link>{
+  return this.http.put<Link>(this.urlBack+"/l/att/"+username+"/"+titulo,link)
 }
 
 

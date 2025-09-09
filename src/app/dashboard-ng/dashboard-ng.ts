@@ -37,8 +37,8 @@ usuario:any
 ngOnInit(){
 
 this.usuario=this.service.buscarToken()
-this.links$=this.service.buscaLinksUsuario(this.usuario.Id)
-
+this.links$=this.service.buscaLinksUsuario(this.usuario.Username)
+this.msg=""
 
 
 }
@@ -50,7 +50,7 @@ icone:new FormControl("",[Validators.required,Validators.maxLength(255)])
 })
 
 editLink=new FormGroup({
-  link:new FormControl("sssss",[Validators.required,Validators.maxLength(255)]),
+  link:new FormControl(this.linkEdit.link_user,[Validators.required,Validators.maxLength(255)]),
 titulo:new FormControl(this.linkEdit.titulo,[Validators.required,Validators.maxLength(55)]),
 icone:new FormControl(this.linkEdit.icone,[Validators.required,Validators.maxLength(255)])
 })
@@ -64,7 +64,7 @@ sair(){
 adicionarLinks(){
 
 
-  let id=this.usuario.Id
+  let username=this.usuario.Username
   const regex = /[\/.@#\$%\^\&*\)\(+=._-]/;
   const link:Link={
       "link_user":this.addLink.get('link').value.trim(),
@@ -72,50 +72,42 @@ adicionarLinks(){
       "icone":this.addLink.get('icone').value.trim()
   }
 
-  let linkLenght:number
-  this.links$.subscribe(list=>{linkLenght=list.length})
 
-
-
+ 
   if(!regex.test(link.titulo)){
-    if(linkLenght<=4){
-   this.service.adicionarLink(link,id).subscribe({
+    
+   this.service.adicionarLink(link,username).subscribe({
       next:()=>{
-      console.log("Link Adicionado")
       this.msgAdicionado=true
       this.msg="Link Adicionado com sucesso !!"
-      this.links$=this.service.buscaLinksUsuario(this.usuario.Id)
+      this.links$=this.service.buscaLinksUsuario(this.usuario.Username)
       this.addLink.reset()
-      this.cd.detectChanges()
-      setTimeout(()=>{
+      this.cd.markForCheck();
+    
+      
+    setTimeout(()=>{
         this.msgAdicionado=false
-        this.cd.detectChanges()
-      },3000)
+        this.cd.markForCheck();
+    },3000)
       
      
     },
     error:(error)=>{
         this.msgAdicionado=true
-        this.msg="Ocorreu um erro"
-        this.cd.detectChanges()
+        this.msg=error.error.erro
+        this.cd.markForCheck();
+
+
       setTimeout(()=>{
         this.msgAdicionado=false
       },3000)
     }
 
   })
+
 }else{
     this.msgAdicionado=true
-  this.msg="Limite de Links é 5"
-
-  setTimeout(()=>{
-    this.msgAdicionado=false
-    this.msg=""
-  },2000)
-}
-}else{
-  this.msgAdicionado=true
-  this.msg="Crie o titulo sem Caracteres Especiais"
+    this.msg="Crie o titulo sem Caracteres Especiais"  
 
   setTimeout(()=>{
     this.msgAdicionado=false
@@ -130,28 +122,28 @@ adicionarLinks(){
 removerLinks(titulo:string){
   this.msg=""
   
-  const id=this.usuario.Id
-  this.service.deletarLink(id,titulo).subscribe({
+  const username=this.usuario.Username
+  this.service.deletarLink(username,titulo).subscribe({
     next:()=>{
-      this.msgRemovido=true
-      this.msg="Link Removido!"
-      this.links$=this.service.buscaLinksUsuario(this.usuario.Id)
-      this.cd.detectChanges()
+          this.msgRemovido=true
+          this.msg="Link Removido!"
+          this.links$=this.service.buscaLinksUsuario(this.usuario.Username)
+          this.cd.markForCheck();
+     
 
       setTimeout(()=>{
         this.msgRemovido=false
-        this.cd.detectChanges()
-      },3000)
+        this.cd.markForCheck();
+            },3000)
     },
     error:()=>{
-       this.msgRemovido=true
-        this.msg="Ocorreu um erro!!"
-                this.cd.detectChanges()
+          this.msgRemovido=true
+          this.msg="Ocorreu um erro!!"
+          this.cd.markForCheck();        
 
       setTimeout(()=>{
         this.msgRemovido=false
-        this.cd.detectChanges()
-
+        this.cd.markForCheck();
       },3000)
 
     }
@@ -161,8 +153,12 @@ removerLinks(titulo:string){
 }
 
 editarLinks(titulo:string){
+this.msg=""
+this.msgEditado=false
+
+  //TODO ? NO REGEX
   const regex = /[\/.@#\$%\^\&*\)\(+=._-]/;
-  const id=this.usuario.Id
+  const username=this.usuario.Username
   const link:Link={
      "link_user":this.editLink.get('link').value,
       "titulo":this.editLink.get('titulo').value,
@@ -171,61 +167,68 @@ editarLinks(titulo:string){
 
 if(!regex.test(link.titulo)){
 
-  this.service.editarLink(id,titulo,link).subscribe({
-        next:()=>{
-            this.msgEditado=true;
-            this.msg="Link editado"
-            this.cd.detectChanges()
-
-             this.links$=this.service.buscaLinksUsuario(this.usuario.Id)
-
-            setTimeout(()=>{
+  this.service.editarLink(username,titulo,link).subscribe({
+      next:()=>{
+         this.msgEditado=true;
+         this.msg="Link editado"
+         this.links$=this.service.buscaLinksUsuario(this.usuario.Username)
+         this.cd.detectChanges()
+          setTimeout(()=>{
+            this.msg=""
             this.msgEditado=false
+            this.cd.detectChanges()
           },3000)
 
         },
         error:()=>{
-          this.msgEditado=true
-          this.msg="Ocorreu um erro"
-          this.cd.detectChanges()
+            this.msgEditado=true
+            this.msg="Ocorreu um erro"
+            this.cd.detectChanges();
+        
 
           setTimeout(()=>{
             this.msgEditado=false
-            this.cd.detectChanges()
+            this.cd.detectChanges();
 
           },3000)
         }
 
   })
   }else{
-      this.msgAdicionado=true
+      this.msgEditado=true
       this.msg="Edite o titulo sem Caracteres Especiais"
-  }
+      this.cd.detectChanges();
+      
+    }
+
+      
 }
 
 
 edit2(titulo:string){
  
-  const id=this.usuario.Id
+  const username=this.usuario.Username
 
-  this.service.buscarLink(id,titulo).subscribe({
+  this.service.buscarLink(username,titulo).subscribe({
     next:(response)=>{
 
-      this.linkEdit=response
-
+        this.linkEdit=response
         this.editLink.patchValue({
           link:this.linkEdit.link_user,
           titulo:this.linkEdit.titulo,
           icone:this.linkEdit.icone
         })
         this.toEditar2()
-        this.cd.detectChanges()
+        this.cd.markForCheck();
 
       
     },
     error:()=>{
-         this.msgEditado=true
+          this.msgEditado=true
           this.msg="Ocorreu um erro"
+          this.cd.markForCheck();
+
+      
           setTimeout(()=>{
             this.msgEditado=false
             this.cd.detectChanges()

@@ -6,19 +6,19 @@
             <h1>Tô Meus Links</h1>
             <h4>TODOS SEUS LINKS EM UM SO LUGAR!</h4>
 
-            <button class="botao"><p>TÔ MEUS LINKS</p></button>
-    </div>
-    <div class="links">
+    </div> 
+    <div class="links"> 
             <div class="quadro">
-                <h3>{{nome}}</h3>
+                <h3></h3>
                 
-                @for( link of links;track $index){
                     <div class="linksQuadro">
-                       <img src="/youtube.png" alt=""> <p>{{link}}</p>
-
+                    @for( link of links;track $index){
+                        <div class="link">
+                            <img src="/youtube.png" alt=""> <p></p>
+                        </div>
+                         }
                     </div>
-            }
-                        <img src="/mao.png" alt="">
+           
 
             </div>
     </div>
