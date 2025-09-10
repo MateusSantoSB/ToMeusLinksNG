@@ -60,20 +60,20 @@ h4{
 }
 .esquerdaIMG img{
     padding-top: 5vh;
-    height: 33vh;
-    width: 33vw;
+    height: 30vh;
+    width: 30vw;
 }
 
 
 .direitaIMG{
     height: 30vh; 
-    width: 33vw;
+    width: 30vw;
     
 }
 
 .direitaIMG img{
     height: 30vh;
-    width: 33vw;
+    width: 30vw;
     display: flex;
     justify-content: center;
 }

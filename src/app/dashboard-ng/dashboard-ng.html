@@ -39,7 +39,7 @@
                 <button (click)="toAdicionar()"><p>Adicionar</p></button>
                 <button (click)="toRemover()"><p>Remover </p></button>
                 <button (click)="toEditar()"><p>Editar</p></button>
-                <button><p>Visualizar Pagina</p></button>
+                <button (click)="toPagina()" target="_blank"><p>Visualizar Pagina</p></button>
             </div>
         </div>
     }
@@ -85,7 +85,7 @@
            
                 @for(link of (links$|async);track $index){
                 <div class="removerLink">
-                    <p>{{link.link_user}}</p><img src="/lixeira.png" alt="" (click)="removerLinks(link.titulo)">
+                    <p>{{link.titulo}}</p><img src="/lixeira.png" alt="" (click)="removerLinks(link.titulo)">
                 </div>
                 }@empty {
                     <p>Você não tem links cadastrados</p>
@@ -117,7 +117,7 @@
            
                 @for(link of (links$|async);track $index){
                 <div class="editarLink">
-                    <p>{{link.link_user}}</p><img src="/lapisW.png" alt="" (click)="edit2(link.titulo)">
+                    <p>{{link.titulo}}</p><img src="/lapisW.png" alt="" (click)="edit2(link.titulo)">
                 </div>
                 }@empty {
                     <p>Você não tem links cadastrados</p>

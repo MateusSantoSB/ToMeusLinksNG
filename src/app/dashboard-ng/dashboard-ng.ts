@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard-ng',
-  imports: [CommonModule, ɵInternalFormsSharedModule, FormsModule, ReactiveFormsModule],
+  imports: [CommonModule, ɵInternalFormsSharedModule, FormsModule, ReactiveFormsModule,],
   templateUrl: './dashboard-ng.html',
   styleUrl: './dashboard-ng.css'
 })
@@ -125,7 +125,7 @@ verficarLinkForm(){
   }
 }
 verficarTituloForm(){
-const regex=/^[a-zA-Z0-9]+$/;
+const regex=/^[a-zA-Z0-9 ]+$/;
   if(this.addLink.get('titulo').errors?.['required']){
       this.msg.set("Titulo é Obrigatorio!")
   }
@@ -211,9 +211,9 @@ if(this.editLink.valid){
           },3000)
 
         },
-        error:()=>{
+        error:(error)=>{
             this.msgEditado.set(true)
-            this.msg.set("Ocorreu um erro")
+            this.msg.set(error.error.erro)
         
 
           setTimeout(()=>{
@@ -241,7 +241,7 @@ verficarLinkFormEdit(){
   }
 }
 verficarTituloFormEdit(){
-const regex=/^[a-zA-Z0-9]+$/;
+const regex=/^[a-zA-Z0-9 ]+$/;
   if(this.editLink.get('titulo').errors?.['required']){
       this.msg.set("Titulo é Obrigatorio!")
   }
@@ -385,6 +385,13 @@ toEditar2(){
   this.gerenciarLinks=false
   this.editarLink2=true
   this.editarLink=false
+}
+
+toPagina(){
+  const url=this.router.serializeUrl(
+         this.router.createUrlTree(['/meuslinks/'+this.usuario.Username])
+      )
+        window.open(url,'_blank')
 }
 
 

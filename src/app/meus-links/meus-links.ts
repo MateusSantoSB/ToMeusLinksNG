@@ -9,7 +9,7 @@ import { FooterNg } from "../footer-ng/footer-ng";
 
 @Component({
   selector: 'app-meus-links',
-  imports: [CommonModule, FooterNg],
+  imports: [CommonModule, FooterNg,],
   templateUrl: './meus-links.html',
   styleUrl: './meus-links.css'
 })

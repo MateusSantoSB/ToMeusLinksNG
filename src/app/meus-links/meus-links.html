@@ -1,5 +1,4 @@
 <div class="container-fluid">
-    <div class="container">
 
     
     <div class="titulo">
@@ -17,7 +16,12 @@
                     <div class="linksQuadro">
                    @for( link of (links$|async);track $index){ 
                         <div class="link">
-                            <a href="{{link.link_user}}"><div class="imgA"><img src="{{link.icone}}" alt=""></div> <p>{{link.titulo}}</p></a>
+                        
+                         <a href="{{link.link_user}}" target="_blank">        
+                      <div class="imgA"><img src="{{link.icone}}" alt=""></div> 
+                      <div class="pA"><p>{{link.titulo}}</p></div>
+                        </a>
+
                         </div>
                           }@empty {
                             <p>Usuario sem links registrados</p>
@@ -34,12 +38,15 @@
     </div>
 }
     @if(loading()){
-        <span class="loader"></span>
+        <div class="loading">
+            <span class="loader"></span>
+
+        </div>
     }
 
 
 
-</div>
+
 
 
 
