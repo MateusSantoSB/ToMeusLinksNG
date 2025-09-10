@@ -15,7 +15,7 @@ import { FooterNg } from "../footer-ng/footer-ng";
 })
 export class MeusLinks {
 
-constructor(private service:Servico,private router:ActivatedRoute){
+constructor(private service:Servico,private router:ActivatedRoute,private routerL:Router){
 
 }
 
@@ -44,6 +44,10 @@ ngOnInit(){
   
    
   
+}
+
+toHome(){
+  this.routerL.navigate(['/'])
 }
 
 }

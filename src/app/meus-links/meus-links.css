@@ -43,6 +43,7 @@ h3{
     flex-direction: column;
     text-align: center;
     align-items: center;
+    
 
 }
 .titulo h4{
@@ -50,6 +51,7 @@ h3{
     font-family: 'Baloo',cursive;
     font-size: 2vh;
     margin-bottom: 10vh;
+    cursor: pointer;
 }
 .links{
     width: 100%;

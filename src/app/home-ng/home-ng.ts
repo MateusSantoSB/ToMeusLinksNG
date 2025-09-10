@@ -130,7 +130,7 @@ const usuario:Usuario={
 verficarNome(){
 
 const nome=this.formRegistrar.get('nome').value.trim()
-const regex =/^[a-zA-Z0-9]+$/;
+const regex =/^[a-zA-Z0-9 ]+$/;
 
 
 
@@ -148,7 +148,7 @@ const regex =/^[a-zA-Z0-9]+$/;
       }
 
       if(!regex.test(nome)){
-           this.msg.set('Nome não deve ter Caracteres Especiais')
+           this.msg.set('Nome em formato invalido')
            this.formRegistrar.get('nome').setErrors({caracteres:true})
 
       }
@@ -173,7 +173,7 @@ verificarApelido(){
           this.msg.set('Seu apelido deve ser menor')
       }
       if(!regex.test(nome)){
-           this.msg.set('Apelido não deve ter Caracteres Especiais')
+           this.msg.set('Apelido em formato invalido')
            this.formRegistrar.get('apelido').setErrors({caracteres:true})
 
       }
