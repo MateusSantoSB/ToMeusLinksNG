@@ -161,7 +161,10 @@ h1{
    display: flex;
    justify-content: center;
    flex-direction: column;
+      align-items: center;
+
 }
+
 .editarLink{
    display: flex;
    flex-direction: row;
@@ -172,6 +175,10 @@ h1{
    width: 90%;
    margin-bottom: 2vh;
 }
+.editarLinks select{
+   width: 90%;
+}
+
 .editarLink p{
    color: white;
    font-size: 3vh;

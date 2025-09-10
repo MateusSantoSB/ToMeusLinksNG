@@ -20,7 +20,9 @@
 
                         <p>Senha:</p>
                         <input type="text" #pass>
-
+                        <div class="msgErro">
+                            <p>{{msg()}}</p>
+                        </div>
                         <button (click)="login(email.value,pass.value)"><p>Entrar</p></button>
                         <p id="msg" (click)="toRegistrar()">Não tem conta? Registre aqui!!</p>
                     </div>
@@ -32,20 +34,27 @@
     <div class="container-fluid" *ngIf="registrarVisivel">
         <div class="registrar">
                 <div class="form">                 
+                
                     <h4>Cadastrar</h4>
+<form [formGroup]="formRegistrar" >
+
+                        
                         <p>nome:</p>
-                        <input type="text" #nome>
+                        <input type="text" formControlName="nome" >
 
                         <p>Apelido:</p>
-                        <input type="text" #apelido>
+                        <input type="text" formControlName="apelido">
 
                         <p>Email:</p>
-                        <input type="text" #email>
+                        <input type="text"  formControlName="email">
 
                         <p>Senha:</p>
-                        <input type="text" #pass>
-
-                        <button (click)="registrar(nome.value,apelido.value,email.value,pass.value)"><p>Cadastrar</p></button>
+                        <input type="text"  formControlName="senha">
+                        <div class="msgErro">
+                            <p [ngStyle]="{'color':'{{msgmsgColor()}}'}">{{msg()}}</p>
+                        </div>
+</form>
+                        <button (click)="registrar()"><p>Cadastrar</p></button>
                         <p id="msg" (click)="toLogin()">Já tem conta? logue aqui!!</p>
                     </div>
         </div>

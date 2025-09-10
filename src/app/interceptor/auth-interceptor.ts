@@ -10,7 +10,9 @@ const router=inject(Router)
 
 const token = localStorage.getItem('token');
 
-
+if(req.url.includes("/l/meuslinks") || req.url.includes("/u/public/")){
+    return next(req);
+}
 if(req.url.includes('/l')){
   
 if (token ) { 

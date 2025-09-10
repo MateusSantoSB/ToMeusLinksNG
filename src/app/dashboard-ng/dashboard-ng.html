@@ -21,7 +21,6 @@
 
            @for(link of (links$|async);track $index){
               <div>
-                 <p>{{link.titulo}}</p>
                  <a href="{{link.link_user}}">{{link.link_user}}</a>     
             </div>
             }@empty{
@@ -54,12 +53,20 @@
             <input type="text" formControlName="link" placeholder="Link da sua rede social" >
             <p>Titulo</p>
             <input type="text" formControlName="titulo" placeholder="Titulo/Nome da sua rede " >
-            <p>Icone/Url</p>
-            <input type="text"  formControlName="icone" placeholder="Icone da sua rede">
+
+            <p>Icone</p>
+            <select class="form-select" aria-label="Default select example" formControlName="icone" >
+                    <option value="1">Instagram</option>
+                    <option value="2">Linkedin</option>
+                    <option value="3">Facebook</option>
+                    <option value="4">Whatsapp</option>
+                    <option value="5">Tiktok</option>
+                    <option value="6">Youtube</option>
+            </select>
         </form>
             </div>
             @if(msgAdicionado){
-                <p id="msg">{{msg}}</p>
+                <p id="msg">{{msg()}}</p>
             }
             <div class="botoes">
                      <button (click)="adicionarLinks()"><p>Adicionar</p></button>
@@ -87,7 +94,7 @@
                 </div>
 
               @if(msgRemovido){
-                    <p id="msg">{{msg}}</p>
+                    <p id="msg">{{msg()}}</p>
               }
 
             <div class="botoes">
@@ -143,8 +150,17 @@
                     <p>Titulo</p>
                     <input type="text"  formControlName="titulo">
                     <p>Icone</p>
-                    <input type="text"  formControlName="icone">
-                        </form>
+            <select class="form-select" aria-label="Default select example"formControlName="icone" >
+                    <option value="1">Instagram</option>
+                    <option value="2">Linkedin</option>
+                    <option value="3">Facebook</option>
+                    <option value="4">Whatsapp</option>
+                    <option value="5">Tiktok</option>
+                    <option value="6">Youtube</option>
+            </select>  
+                
+                
+                </form>
                     
                 </div>
                 
@@ -153,7 +169,7 @@
 
 
            @if(msgEditado){
-                <p id="msg" >{{msg}}</p>
+                <p id="msg" >{{msg()}}</p>
         }
             <div class="botoes">
                      <button type="button" (click)="editarLinks(linkEdit.titulo)"><p>Editar</p></button>

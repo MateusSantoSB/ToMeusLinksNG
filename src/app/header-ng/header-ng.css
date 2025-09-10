@@ -24,3 +24,16 @@
 }
 .titulo p{
 }
+
+
+@media(max-width:400px){
+.titulo h1{
+    font-size: 5vh;
+    height: 5vh;
+}
+.titulo p{
+    font-size: 2vh;
+}
+
+
+}

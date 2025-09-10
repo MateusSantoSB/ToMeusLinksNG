@@ -65,6 +65,10 @@ editarLink(username:string,titulo:string,link:Link):Observable<Link>{
   return this.http.put<Link>(this.urlBack+"/l/att/"+username+"/"+titulo,link)
 }
 
+buscarUsuarioUser(username:string):Observable<Usuario>{
+  return this.http.get<Usuario>(this.urlBack+"/u/public/"+username)
+}
+
 
 
 }

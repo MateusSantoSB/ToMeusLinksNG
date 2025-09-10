@@ -7,35 +7,47 @@
             <h4>TODOS SEUS LINKS EM UM SO LUGAR!</h4>
 
     </div> 
+@if(!loading()){ 
+
     <div class="links"> 
-          @for( link of (links$|async);track $index){    
-        <div class="quadro">
+            
+             <div class="quadro">
                 <h3>{{nome}}</h3>
                 
                     <div class="linksQuadro">
-                  
+                   @for( link of (links$|async);track $index){ 
                         <div class="link">
-                            <a href="{{link.link_user}}"><img src="{{link.icone}}" alt=""> <p>{{link.titulo}}</p></a>
+                            <a href="{{link.link_user}}"><div class="imgA"><img src="{{link.icone}}" alt=""></div> <p>{{link.titulo}}</p></a>
                         </div>
-                         
+                          }@empty {
+                            <p>Usuario sem links registrados</p>
+                          }
+                            
 
                     </div>
            
 
             </div>
-            }@empty{
-                            <div>
-                                <h1>Usuario não encontrado :-(</h1>
-                            </div>
-                         }
+           
+
+
     </div>
-
-</div>
-
-
-
-
+}
+    @if(loading()){
+        <span class="loader"></span>
+    }
 
 
 
 </div>
+
+
+
+
+
+<div class="footer">
+<app-footer-ng></app-footer-ng>
+
+</div>
+</div>
+

@@ -9,7 +9,7 @@
     display: flex;
     justify-content: center;
     flex-direction: row;
-
+    margin-bottom: 5vh ;
 
 }
 
@@ -109,5 +109,37 @@ h4{
 .form button p{
     color: black;
 }
+.msgErro{
+    display: flex;
+    justify-content: center;
+}
+.msgErro p{
+    color: red;
+}
 
+
+@media(max-width:400px){
+
+.esquerdaIMG img{
+    height: 0vh;
+    width: 0vw;
+}
+.direitaIMG img{
+    height: 0vh;
+    width: 0vw; 
+}
+.botoes button{
+     border-radius: 10px;
+    height: 7vh;
+    width: 30vw;
+    margin-bottom: 4vh;
+    border: none;
+}
+
+.botoes p{
+    font-size: 2vh;
+}
+
+
+}
 
