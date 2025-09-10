@@ -110,7 +110,8 @@ const usuario:Usuario={
           next:()=>{
             console.log("Usuario registrado!")
             this.msg.set("Usuario Registrado!")
-            this.msgColor.set("green")
+            this.msgColor.set("white")
+
             setTimeout(()=>{
               this.msg.set("")
               this.msgColor.set("red")

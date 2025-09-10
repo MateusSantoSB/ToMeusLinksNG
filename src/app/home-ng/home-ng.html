@@ -51,7 +51,7 @@
                         <p>Senha:</p>
                         <input type="text"  formControlName="senha">
                         <div class="msgErro">
-                            <p [ngStyle]="{'color':'{{msgmsgColor()}}'}">{{msg()}}</p>
+                            <p [ngStyle]="{'color':msgColor()}">{{msg()}}</p>
                         </div>
 </form>
                         <button (click)="registrar()"><p>Cadastrar</p></button>
