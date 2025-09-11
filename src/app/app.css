@@ -11,6 +11,11 @@ header{
 }
 footer{
     margin-top: 10vh;
-    
-
+    position: fixed; 
+    width: 100%;
+    margin-bottom: 5vh;
+    height: 20vh;
+}
+section{
+    height: 50%;
 }

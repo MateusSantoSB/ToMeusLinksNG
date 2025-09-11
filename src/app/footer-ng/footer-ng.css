@@ -8,6 +8,7 @@
     justify-content: center;
     flex-direction: column;
     text-align: center;
+    height: 10%;
 }
 .links{
     display: flex;
@@ -29,5 +30,6 @@
 a{
    display: flex;
    justify-content: center;
+   text-decoration: none;
     
 }
