@@ -83,14 +83,21 @@
 
                 <div class="removerLinks">
            
-                @for(link of (links$|async);track $index){
+           @if(loader()){
+               @for(link of (links$|async);track $index){
+                
                 <div class="removerLink">
                     <p>{{link.titulo}}</p><img src="/lixeira.png" alt="" (click)="removerLinks(link.titulo)">
                 </div>
                 }@empty {
                     <p>Você não tem links cadastrados</p>
                 }
-
+            }
+            @if(!loader()){
+                <div>
+                    <span class="loader"></span>
+                </div>
+            }
                 </div>
 
               @if(msgRemovido){
@@ -115,6 +122,7 @@
            
                 <div class="editarLinks">
            
+                @if(loader()){   
                 @for(link of (links$|async);track $index){
                 <div class="editarLink">
                     <p>{{link.titulo}}</p><img src="/lapisW.png" alt="" (click)="edit2(link.titulo)">
@@ -122,7 +130,13 @@
                 }@empty {
                     <p>Você não tem links cadastrados</p>
                 }
+                }
 
+                @if (!loader()) {
+                <div >
+                    <span class="loader"></span>
+                </div>
+                    }
                 </div>
 
 

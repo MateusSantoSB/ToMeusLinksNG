@@ -25,7 +25,7 @@ registrarVisivel=false
 msg=signal("")
 msgColor=signal("")
 
-
+loading:boolean
 
 
 email:string="";
@@ -116,7 +116,7 @@ const usuario:Usuario={
               this.msg.set("")
               this.msgColor.set("red")
               this.formRegistrar.reset()
-            },3000)
+            },1000)
           },
           error:(error)=>{
             this.msg.set(error.error.erro)

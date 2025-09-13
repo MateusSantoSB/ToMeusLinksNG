@@ -14,6 +14,7 @@ constructor(private http:HttpClient){
 
 }
 urlBack:string="https://welcome-hermia-mateussantos-557076e4.koyeb.app"
+//urlBack:string="http://localhost:8080"
 
 logarUsuario(login:Login):Observable<any>{
     return this.http.post<Login>(this.urlBack+"/login",login) 

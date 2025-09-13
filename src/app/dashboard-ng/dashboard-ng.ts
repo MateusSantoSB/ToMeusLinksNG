@@ -29,6 +29,8 @@ icone:string
 linkEdit:Link=new Link 
 usuarioNome:string="Mateus"
 
+loader=signal<boolean>(false)
+
 gerenciarLinks:boolean=true
 adicionarLink:boolean=false
 removerLink:boolean=false
@@ -153,6 +155,9 @@ verficarIconeForm(){
 
 removerLinks(titulo:string){
   
+
+
+
   const username=this.usuario.Username
   this.service.deletarLink(username,titulo).subscribe({
     next:()=>{
@@ -368,6 +373,7 @@ toGerenciarLinks(){
   this.removerLink=false
   this.editarLink=false
   this.editarLink2=false
+  this.loader.set(false)
 
 }
 
@@ -375,16 +381,24 @@ toRemover(){
   this.gerenciarLinks=false
   this.removerLink=true
   this.msg.set("")
+  setTimeout(()=>{  
+    this.loader.set(true)
+},1000)
+
 }
 toEditar(){
   this.gerenciarLinks=false
   this.editarLink=true
   this.msg.set("")
+  setTimeout(()=>{  
+    this.loader.set(true)
+  },1000)
 }
 toEditar2(){
   this.gerenciarLinks=false
   this.editarLink2=true
   this.editarLink=false
+   
 }
 
 toPagina(){

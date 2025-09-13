@@ -13,8 +13,10 @@
     </div>
     <div class="container-fluid" *ngIf="loginVisivel">
             <div class="login">
-                    <div class="form">                 
-                       <h4>Entrar</h4>
+                <div class="tituloForm">
+                    <h4>Entrar</h4>
+                </div>  
+                <div class="form">                 
                         <p>Email:</p>
                         <input type="text" #email>
 
@@ -35,10 +37,12 @@
         <div class="registrar">
                 <div class="form">                 
                 
-                    <h4>Cadastrar</h4>
-<form [formGroup]="formRegistrar" >
+                    <div class="tituloForm">
+                         <h4>Cadastrar</h4>
+                    </div>
+                   
 
-                        
+<form [formGroup]="formRegistrar" >
                         <p>nome:</p>
                         <input type="text" formControlName="nome" >
 
