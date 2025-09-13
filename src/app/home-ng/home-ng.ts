@@ -25,7 +25,7 @@ registrarVisivel=false
 msg=signal("")
 msgColor=signal("")
 
-
+loading:boolean
 
 
 email:string="";

@@ -7,15 +7,13 @@
         overflow-x: hidden;
 }
 header{
-    margin-bottom: 10vh;
+    height: 20%;
+    margin-bottom: 5vh;
 }
 footer{
-    margin-top: 10vh;
-    position: fixed; 
     width: 100%;
-    margin-bottom: 5vh;
-    height: 20vh;
+    height: 10%;
 }
 section{
-    height: 50%;
+    height: 60%;
 }
